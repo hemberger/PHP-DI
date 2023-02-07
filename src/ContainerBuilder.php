@@ -33,7 +33,6 @@ use Psr\Container\ContainerInterface;
  * @author Matthieu Napoli <matthieu@mnapoli.fr>
  *
  * @psalm-template ContainerClass of Container
- * @phpstan-template ContainerClass of Container
  */
 class ContainerBuilder
 {
@@ -41,7 +40,6 @@ class ContainerBuilder
      * Name of the container class, used to create the container.
      * @var class-string<Container>
      * @psalm-var class-string<ContainerClass>
-     * @phpstan-var class-string<ContainerClass>
      */
     private string $containerClass;
 
@@ -49,7 +47,6 @@ class ContainerBuilder
      * Name of the container parent class, used on compiled container.
      * @var class-string<Container>
      * @psalm-var class-string<ContainerClass>
-     * @phpstan-var class-string<ContainerClass>
      */
     private string $containerParentClass;
 
@@ -86,7 +83,6 @@ class ContainerBuilder
     /**
      * @param class-string<Container> $containerClass Name of the container class, used to create the container.
      * @psalm-param class-string<ContainerClass> $containerClass
-     * @phpstan-param class-string<ContainerClass> $containerClass
      */
     public function __construct(string $containerClass = Container::class)
     {
@@ -98,7 +94,6 @@ class ContainerBuilder
      *
      * @return Container
      * @psalm-return ContainerClass
-     * @phpstan-return ContainerClass
      */
     public function build()
     {
@@ -176,16 +171,13 @@ class ContainerBuilder
      * @see https://php-di.org/doc/performances.html
      *
      * @psalm-template T of CompiledContainer
-     * @phpstan-template T of CompiledContainer
      *
      * @param string $directory Directory in which to put the compiled container.
      * @param string $containerClass Name of the compiled class. Customize only if necessary.
      * @param class-string<Container> $containerParentClass Name of the compiled container parent class. Customize only if necessary.
      * @psalm-param class-string<T> $containerParentClass
-     * @phpstan-param class-string<T> $containerParentClass
      *
      * @psalm-return self<T>
-     * @phpstan-return self<T>
      */
     public function enableCompilation(
         string $directory,
